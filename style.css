@@ -1,0 +1,134 @@
+body {
+    background-color: #e0e0e0;
+    background-image: radial-gradient(#000 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.neo-card {
+    border: 3px solid black;
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+    transition: all 0.2s ease;
+}
+
+.neo-card:active {
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+    transform: translate(4px, 4px);
+}
+
+#donationModal, #hireModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 50;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#typing-text::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.skill-bar-bg {
+    height: 12px;
+    background: white;
+    border: 2px solid black;
+    position: relative;
+    margin-top: 4px;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: #000;
+    transition: width 1s ease-in-out;
+}
+
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #ff0000;
+    color: #fff;
+    text-align: center;
+    border: 3px solid #000;
+    padding: 12px;
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-weight: 900;
+    font-size: 14px;
+    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+}
+
+#toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+@keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+
+.copy-btn {
+    background: #000;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+    border: 1px solid white;
+    z-index: 10;
+}
+
+.copy-btn:hover {
+    background: #333;
+}
+
+.tab-btn.active {
+    background-color: #000;
+    color: #fff;
+}
+
+.project-item {
+    display: none;
+}
+
+.project-item.active {
+    display: block;
+}
+
+.neo-input {
+    border: 3px solid black;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    outline: none;
+}
+
+.neo-input:focus {
+    background: #f0f0f0;
+}
+
+/* FAQ CSS */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-item.active .faq-content {
+    max-height: 100px;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(180deg);
+}
